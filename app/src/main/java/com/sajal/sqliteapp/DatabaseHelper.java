@@ -2,6 +2,7 @@ package com.sajal.sqliteapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -40,5 +41,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         if (result==-1)
             return false;
         return true;
+    }
+
+    public Cursor viewAllData() {
+        SQLiteDatabase db=this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from "+Table_name,null);
+        return res;
     }
 }
