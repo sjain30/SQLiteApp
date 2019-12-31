@@ -19,8 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mydb= new DatabaseHelper(this);
 
-        final EditText name, surname, marks;
-        Button button,button2;
+        final EditText name, surname, marks,id;
+        Button button,button2,button3;
+        id=findViewById(R.id.editText5);
         name=findViewById(R.id.editText);
         surname=findViewById(R.id.editText2);
         marks=findViewById(R.id.editText3);
@@ -53,7 +54,17 @@ public class MainActivity extends AppCompatActivity {
                 ShowMessage("Data", buffer.toString());
             }
         });
-
+        button3=findViewById(R.id.button3);
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean res = mydb.updateData(id.getText().toString(),name.getText().toString(),surname.getText().toString(),marks.getText().toString());
+                if (res==true)
+                    Toast.makeText(MainActivity.this, "Data updated successfully", Toast.LENGTH_SHORT).show();
+                else
+                    Toast.makeText(MainActivity.this, "Data updation unsuccessfull", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
