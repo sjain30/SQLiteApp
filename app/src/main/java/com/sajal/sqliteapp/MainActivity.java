@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         mydb= new DatabaseHelper(this);
 
         final EditText name, surname, marks,id;
-        Button button,button2,button3;
+        Button button,button2,button3,button4;
         id=findViewById(R.id.editText5);
         name=findViewById(R.id.editText);
         surname=findViewById(R.id.editText2);
@@ -65,7 +65,18 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Data updation unsuccessfull", Toast.LENGTH_SHORT).show();
             }
         });
-
+        button4=findViewById(R.id.button4);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int res =mydb.deleteData(id.getText().toString());
+                if (res>0){
+                    Toast.makeText(MainActivity.this, res+" rows deleted", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    Toast.makeText(MainActivity.this, "Data to be deleted not found", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public void ShowMessage(String title, String Message){
