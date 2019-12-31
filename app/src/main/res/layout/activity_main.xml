@@ -60,7 +60,7 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="52dp"
         android:layout_marginRight="52dp"
-        android:text="TextView"
+        android:text="MARKS"
         app:layout_constraintEnd_toStartOf="@+id/editText3"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
